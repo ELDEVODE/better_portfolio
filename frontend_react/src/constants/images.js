@@ -5,10 +5,13 @@ import cpp from '../assets/cpp.png';
 import css from '../assets/css.png';
 import figma from '../assets/figma.png';
 import flutter from '../assets/flutter.png';
+import reacth from '../assets/reacth.png';
+import tailwind from '../assets/tailwind.png';
 import git from '../assets/git.png';
 import graphql from '../assets/graphql.png';
 import html from '../assets/html.png';
 import javascript from '../assets/javascript.png';
+import javascriptx from '../assets/javascriptx.png';
 import mu5 from '../assets/mu5.png';
 import node from '../assets/node.png';
 import python from '../assets/python.png';
@@ -43,10 +46,13 @@ export default {
   css,
   figma,
   flutter,
+  reacth,
+  tailwind,
   git,
   graphql,
   html,
   javascript,
+  javascriptx,
   mu5,
   node,
   python,
