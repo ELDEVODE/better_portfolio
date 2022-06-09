@@ -15,6 +15,7 @@ const Skills = () => {
     const skillsQuery = '*[_type =="skills"]';
 
     Client.fetch(query).then((data) => {
+      console.log(data);
       setExperience(data);
     });
 
@@ -47,23 +48,34 @@ const Skills = () => {
           ))}
         </motion.div>
         <motion.div className="app__skills-exp">
-          {experience?.works?.map((work) => {
-            <>
-              <motion.div
-                whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: 0.5 }}
-                className="app__skills-exp-work"
-                data-tip
-                data-for={work.name}
-                key={work.name}
-              >
-                <h4 className="bold-text">{work.name}</h4>
+          {experience?.map((experience) => (
+            <motion.div className="app__skills-exp-item" key={experience.year}>
+              <div className="app__skills-exp-year">
+                <p className="bold-text">{experience.year}</p>
+              </div>
+              <motion.div className="app__skills-exp-works">
+                {experience.works.map((work) => (
+                  <>
+                    <motion.div
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.5 }}
+                      className="app__skills-exp-work"
+                      data-tip
+                      data-for={work.name}
+                      key={work.name}
+                    >
+                      <h4 className="bold-text">{work.name}</h4>
+                      <p className="p-text">{work.company}</p>
+                    </motion.div>
+                    <p className='desc'>{work.desc}</p>
+                  </>
+                ))}
               </motion.div>
-            </>;
-          })}
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </>
   );
 };
-export default Skills;
+export default AppWrap(Skills, 'skills');
