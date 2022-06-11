@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import AppWrap from '../../wrapper/AppWrap';
+import MotionWrap from '../../wrapper/MotionWrap';
 
 import './About.scss';
 import { urlFor, Client } from '../../client';
@@ -10,13 +11,10 @@ const About = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-		Client
-			.fetch(
-				`*[_type == "abouts"]`
-			)
-			.then((data) => setAbouts(data))
-			.catch(console.error);
-	}, []);
+    Client.fetch(`*[_type == "abouts"]`)
+      .then((data) => setAbouts(data))
+      .catch(console.error);
+  }, []);
 
   return (
     <>
@@ -50,4 +48,8 @@ const About = () => {
     </>
   );
 };
-export default AppWrap(About, 'about');
+export default AppWrap(
+  MotionWrap(About, 'app__about'),
+  'about',
+  'app__whitebg'
+);

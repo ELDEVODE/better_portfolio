@@ -6,6 +6,7 @@ import AppWrap from '../../wrapper/AppWrap';
 import { urlFor, Client } from '../../client';
 
 import './Skills.scss';
+import MotionWrap from '../../wrapper/MotionWrap';
 const Skills = () => {
   const [experience, setExperience] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -15,7 +16,6 @@ const Skills = () => {
     const skillsQuery = '*[_type =="skills"]';
 
     Client.fetch(query).then((data) => {
-      console.log(data);
       setExperience(data);
     });
 
@@ -78,4 +78,8 @@ const Skills = () => {
     </>
   );
 };
-export default AppWrap(Skills, 'skills');
+export default AppWrap(
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg'
+);
